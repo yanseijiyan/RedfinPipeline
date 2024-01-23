@@ -7,6 +7,16 @@ Once the transformed data is available in the AWS S3 bucket, Snowpipe will be tr
 
 Apache Airflow, an open-source platform for orchestrating and scheduling workflows, will be used to automate and manage the entire ETL process.
 
+## Project Steps:
+
+Source: Redfin data center
+Extraction: Python script using pandas
+Load: Raw data is stored in an Amazon S3 bucket
+Transform: Data transformation using pandas
+Load to Snowflake: Transformed data is loaded into a Snowflake data warehouse table
+Visualization: PowerBI connected to the Snowflake data warehouse
+
+
 ## Project Components
 Data Extraction (Python):
 
@@ -29,3 +39,35 @@ Creates visualizations and obtains insights from the data.
 Workflow Orchestration (Apache Airflow):
 
 Utilizes Apache Airflow to orchestrate and automate the end-to-end ETL process.
+
+## Setup Instructions:
+Airflow Setup:
+
+Ensure that Apache Airflow is installed on your EC2 instance.
+Access Airflow on port 8080 (http://YOUR-IP-FROM-EC2:8080) with login credentials (admin/PASS-FROM-VISUAL-STUDIO-WHEN-YOU-START-AIRFLOW).
+EC2 and VSCode Connection:
+
+Use SSH to connect to the EC2 instance from VSCode.
+Redfin Analytics DAG Execution:
+
+Run the DAG in Apache Airflow to initiate the ETL process.
+Data Download:
+
+Download Redfin data from Redfin Data Center.
+S3 Configuration:
+
+Configure S3 buckets for receiving raw and transformed data.
+Snowflake Setup:
+
+Execute SQL queries to set up the Snowflake database, schema, and table.
+Ensure AWS credentials are appropriately configured.
+Snowpipe Configuration:
+
+Set up a Snowpipe to automatically ingest data into Snowflake from the S3 bucket.
+AWS SQS (Simple Queue Service):
+
+Configure SQS for triggering Snowpipe through an SQS queue.
+Visualization:
+
+Connect PowerBI to the Snowflake data warehouse for visualization.
+
