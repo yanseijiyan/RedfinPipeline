@@ -1,13 +1,31 @@
-# Redfin Analytics Pipeline
+# Real Estate Data Analytics ETL Project
 
 ## Overview
-The "Redfin Analytics" project is an implementation of an Extract, Transform and Load (ETL) workflow using Apache Airflow. The goal is to extract real estate market data from Redfin, perform specific transformations and load the results into an Amazon S3 bucket. The data will then be transferred to Snowflake for data analysis and feeding into a BI dashboard.
+This project is a comprehensive Redfin Real Estate Data Analytics ETL (Extract, Transform, Load) pipeline using Python, Apache Airflow, Snowpipe, Snowflake, and AWS services. The goal is to connect to the Redfin data center, extract real estate data using Python, transform the data with Pandas, and load it into an Amazon S3 bucket. Both the raw and transformed data will be stored in separate Amazon S3 buckets.
 
-## Transfer to Snowflake and Dashboard in BI
-After loading the data into S3, the next step will involve transferring the data to Snowflake. Configure your Snowflake credentials in the config.py file and add tasks to the DAG to carry out the transfer.
+Once the transformed data is available in the AWS S3 bucket, Snowpipe will be triggered automatically. Snowpipe will execute a COPY command to load the transformed data into a Snowflake data warehouse table. Finally, Power BI will be connected to the Snowflake data warehouse for visualization and insights.
 
-Finally, using Business Intelligence (BI) tools such as Tableau, Power BI or Looker, you can create informative dashboards and visualizations from the data stored in Snowflake.
+Apache Airflow, an open-source platform for orchestrating and scheduling workflows, will be used to automate and manage the entire ETL process.
 
+## Project Components
+Data Extraction (Python):
 
-## Contributions
-Feel free to contribute to this project! If you find problems or have suggestions for improvements, open an issue or send a pull request.
+Connects to the Redfin data center as a data source.
+Extracts real estate data using Python.
+Data Transformation (Pandas):
+
+Utilizes Pandas for data transformation tasks.
+Cleans and prepares the data for loading.
+Data Loading (Amazon S3):
+
+Loads the raw and transformed data into separate Amazon S3 buckets.
+Snowflake Integration (Snowpipe):
+
+Initiates Snowpipe to automatically run a COPY command and load transformed data into a Snowflake data warehouse table.
+Visualization (Power BI):
+
+Connects Power BI to the Snowflake data warehouse.
+Creates visualizations and obtains insights from the data.
+Workflow Orchestration (Apache Airflow):
+
+Utilizes Apache Airflow to orchestrate and automate the end-to-end ETL process.
