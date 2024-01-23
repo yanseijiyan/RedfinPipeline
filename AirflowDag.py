@@ -7,7 +7,7 @@ import boto3
 
 s3_client = boto3.client('s3')
 
-target_bucket_name = 'redfinyanseijibucket'
+target_bucket_name = 'Your-Transformed-Bucket-Name'
 
 url_by_city = 'https://redfin-public-data.s3.us-west-2.amazonaws.com/redfin_market_tracker/city_market_tracker.tsv000.gz'
 
@@ -127,7 +127,7 @@ with DAG(
         
             load_to_s3 = BashOperator(
                 task_id = 'tsk_load_to_s3',
-                bash_command = 'aws s3 mv {{ti.xcom_pull("tsk_extract_redfin_data")[0]}} s3://store-raw-data-redfin-yan',
+                bash_command = 'aws s3 mv {{ti.xcom_pull("tsk_extract_redfin_data")[0]}} s3://Your-Raw-Data-Bucket',
                 dag=dag
             )
 
