@@ -10,10 +10,15 @@ Apache Airflow, an open-source platform for orchestrating and scheduling workflo
 ## Project Steps:
 
 Source: Redfin data center
+
 Extraction: Python script using pandas
+
 Load: Raw data is stored in an Amazon S3 bucket
+
 Transform: Data transformation using pandas
+
 Load to Snowflake: Transformed data is loaded into a Snowflake data warehouse table
+
 Visualization: PowerBI connected to the Snowflake data warehouse
 
 
